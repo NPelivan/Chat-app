@@ -3,6 +3,8 @@ import Messages from "./components/Messages";
 import "./styles/main.css";
 import Input from "./components/Input";
 
+require("dotenv").config();
+
 //name generator
 function randomName() {
   const adjectives = [
@@ -58,7 +60,8 @@ class App extends React.Component {
 
   constructor() {
     super();
-    this.drone = new window.Scaledrone("RkJLVdo5SOdAX1s8", {
+
+    this.drone = new window.Scaledrone(process.env.REACT_APP_API_KEY, {
       data: this.state.member,
     });
     this.drone.on("open", (error) => {
