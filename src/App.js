@@ -64,6 +64,7 @@ class App extends React.Component {
     this.drone = new window.Scaledrone(process.env.REACT_APP_API_KEY, {
       data: this.state.member,
     });
+
     this.drone.on("open", (error) => {
       if (error) {
         return console.error(error);
